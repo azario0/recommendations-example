@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ product.product_name }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        .product-header {
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .product-header img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-right: 20px;
+        }
+        .product-header .details {
+            flex: 1;
+        }
+        .product-header h1 {
+            margin: 0;
+            font-size: 2em;
+            color: #333;
+        }
+        .product-description {
+            margin-top: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .product-description p {
+            margin: 0;
+            line-height: 1.6;
+        }
+        .product-actions {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+        }
+        .product-actions a {
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .product-actions a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="product-header">
+            <img src="{{ url_for('static', filename='images/' ~ product.image_url) }}" alt="{{ product.product_name }}">
+            <div class="details">
+                <h1>{{ product.product_name }}</h1>
+            </div>
+        </div>
+        <div class="product-description">
+            
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio autem ipsum
+                ducimus adipisci aperiam ipsam, sed, eum ullam ut voluptatum corporis
+                voluptatibus. Dolore, fugiat sapiente suscipit eaque neque provident
+                accusantium? Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eos
+                porro ipsum, quos, minima sint nihil non a atque maiores tempore nesciunt
+                odio aliquid maxime, iste dolores id esse quisquam dolore!
+            </p>
+        </div>
+        <div class="product-actions">
+            <a href="{{ url_for('visit_product', product_id=product.product_id) }}">Visit</a>
+            <a href="{{ url_for('purchase_product', product_id=product.product_id) }}">Purchase</a>
+        </div>
+    </div>
+</body>
+</html>
